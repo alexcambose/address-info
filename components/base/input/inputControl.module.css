@@ -1,0 +1,10 @@
+
+.inputHelper {
+  font-size: .9rem;
+  margin-bottom: .3em;
+  transition: var(--transition-default);
+}
+
+.inputHelperError {
+  color: var(--color-error);
+}

@@ -3,7 +3,7 @@
 :root {
   --font-color: #000;
   --background-color: #d6dbdc;
-  --border-radius-default: 1rem;
+  --border-radius-default: 1.6rem;
   --color-primary: #a0a0a0;
   --color-primary-hover: #b0b0b0;
   --color-error: rgb(159, 0, 0);
@@ -18,7 +18,8 @@
     --background-color: #131316;
     --color-primary: #1f2025;
     --color-primary-hover: #26262a;
-    --color-accent: #989898;
+    --color-accent: #c0f8ff;
+    --color-accent-hover: #aadce3;
   }
 }
 

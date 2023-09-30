@@ -1,15 +1,25 @@
 'use client';
-import * as React from 'react';
-import { Formik, FormikHelpers, FormikProps, Form, FieldProps } from 'formik';
+import { MagnifyingGlass } from '@phosphor-icons/react';
+import { Form, Formik } from 'formik';
 import { InputControl } from '../base/input/InputControl';
 import { addressSearchFormValidationSchema } from './validationSchema';
-import { MagnifyingGlass } from '@phosphor-icons/react';
+import { Button } from '../base/button';
+import styles from './addressSearchForm.module.css';
+import { HTMLAttributes } from 'react';
+import classNames from 'classnames';
 
+export interface AddressSearchFormProps
+  extends HTMLAttributes<HTMLFormElement> {
+  searchButton?: boolean;
+}
 interface AddressFormValues {
   address: string;
 }
 
-export const AddressSearchForm = () => {
+export const AddressSearchForm = ({
+  searchButton = true,
+  ...props
+}: AddressSearchFormProps) => {
   const initialValues: AddressFormValues = { address: '' };
   return (
     <Formik
@@ -22,7 +32,7 @@ export const AddressSearchForm = () => {
         actions.setSubmitting(false);
       }}
     >
-      <Form>
+      <Form {...props} className={classNames(styles.form, props.className)}>
         <InputControl
           autoFocus
           aria-required
@@ -31,7 +41,11 @@ export const AddressSearchForm = () => {
           placeholder="Address"
           icon={<MagnifyingGlass />}
         />
-        aa
+        {searchButton && (
+          <Button>
+            <MagnifyingGlass weight="bold" />
+          </Button>
+        )}
       </Form>
     </Formik>
   );

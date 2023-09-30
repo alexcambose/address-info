@@ -1,9 +1,12 @@
 import './globals.css';
 import type { Metadata } from 'next';
-import { Raleway } from 'next/font/google';
+import { Rubik } from 'next/font/google';
 import { Providers } from '../providers/Providers';
 
-const inter = Raleway({ subsets: ['latin'] });
+const inter = Rubik({
+  weight: ['300', '400', '500', '700'],
+  subsets: ['latin'],
+});
 
 export const metadata: Metadata = {
   title: 'Address Info',

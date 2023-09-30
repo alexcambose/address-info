@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 import React, { InputHTMLAttributes, forwardRef } from 'react';
-import styles from './styles.module.css';
+import styles from './input.module.css';
 
 export interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   hasError?: boolean;

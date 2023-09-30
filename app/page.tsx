@@ -1,17 +1,12 @@
-import { AddressSearchForm } from '../components/addressSearchForm/AddressSearchForm';
-import { Text } from '../components/base/typography';
 import styles from './page.module.css';
+import { Home } from '../views/home/Home';
 
-export default function Home() {
+export default function Main() {
   return (
     <>
       <header></header>
       <main className={styles.main}>
-        <Text variant="h1">Explore</Text>
-        <Text>Instantly view details about an ethereum address.</Text>
-        <div>
-          <AddressSearchForm />
-        </div>
+        <Home />
       </main>
       <footer></footer>
     </>

@@ -1,0 +1,24 @@
+.button {
+  padding: 0 1em;
+  font-size: 1rem;
+  border-radius: var(--border-radius-default);
+  border: none;
+  background-color: var(--color-accent);
+  color: var(--background-color);
+  font-weight: 500;
+  cursor: pointer;
+  max-height: fit-content;
+  user-select: none;
+  height: 3em;
+  transition: var(--transition-default);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.button:hover {
+  background-color: var(--color-accent-hover);
+}
+.button svg {
+  fill: var(--background-color);
+}

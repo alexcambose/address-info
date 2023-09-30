@@ -1,0 +1,19 @@
+.card {
+  font-size: 1rem;
+  min-height: 3rem;
+  padding: 0 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--color-primary-hover);
+  border-radius: var(--border-radius-default);
+  background-color: var(--color-primary);
+  box-shadow: var(--box-shadow-default);
+}
+
+.iconContainer {
+  font-size: 1.4rem;
+  display: flex;
+  align-items: center;
+  margin-right: .4rem;
+}

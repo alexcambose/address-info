@@ -1,7 +1,15 @@
 import React, { forwardRef, HTMLProps, ReactNode } from 'react';
 import styles from './text.module.css';
 
-export type TextVariant = 'h1' | 'h2' | 'h3' | 'p';
+export type TextVariant =
+  | 'h1'
+  | 'h2'
+  | 'h3'
+  | 'h4'
+  | 'h5'
+  | 'h6'
+  | 'span'
+  | 'p';
 
 export interface TextProps extends HTMLProps<HTMLElement> {
   variant?: TextVariant; // You can extend this as needed

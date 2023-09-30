@@ -1,8 +1,8 @@
+import classNames from 'classnames';
 import { Field, FieldProps } from 'formik';
 import { ReactNode, forwardRef } from 'react';
 import { Input, InputProps } from '.';
-import styles from './styles.module.css';
-import classNames from 'classnames';
+import styles from './inputControl.module.css';
 
 export interface InputControlProps extends InputProps {
   helperContent?: ReactNode;
@@ -13,15 +13,11 @@ export const InputControl = forwardRef<HTMLInputElement, InputControlProps>(
   ({ helperContent, icon, ...props }, ref) => {
     return (
       <Field name={props.name}>
-        {({
-          field,
-          form, // also values, setXXXX, handleXXXX, dirty, isValid, status, etc.
-          meta,
-        }: FieldProps) => {
+        {({ field, meta }: FieldProps) => {
           const hasError = !!meta.value && meta.touched && !!meta.error;
           const shouldDisplayHelper = hasError || helperContent;
           return (
-            <div>
+            <>
               <Input
                 type="text"
                 hasError={hasError}
@@ -39,7 +35,7 @@ export const InputControl = forwardRef<HTMLInputElement, InputControlProps>(
                   {meta.error ? meta.error : helperContent}
                 </div>
               )}
-            </div>
+            </>
           );
         }}
       </Field>
