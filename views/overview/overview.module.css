@@ -1,0 +1,13 @@
+.navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin: 2rem 0;
+  gap: 1rem;
+}
+@media screen and (max-width: 600px) {
+  .navigation {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

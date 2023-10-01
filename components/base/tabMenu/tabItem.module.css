@@ -1,0 +1,28 @@
+.tabItem {
+  font-size: 1rem;
+  padding: 0 2em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--border-radius-default);
+  user-select: none;
+  transition: var(--transition-default);
+  opacity: 0.6;
+  cursor: pointer;
+  background-color: transparent;
+}
+.tabItem:not(:last-of-type) {
+  margin-right: 0.2em;
+}
+.tabItemSelected, .tabItem:hover {
+  background-color: var(--color-primary-hover);
+  opacity: 1;
+}
+.tabItemSelected {
+  cursor: default;
+}
+@media screen and (max-width: 600px) {
+  .tabItem {
+    width: 100%;
+  }
+}

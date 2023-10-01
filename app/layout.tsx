@@ -1,4 +1,5 @@
 import './globals.css';
+import 'react-loading-skeleton/dist/skeleton.css';
 import type { Metadata } from 'next';
 import { Rubik } from 'next/font/google';
 import { Providers } from '../providers/Providers';

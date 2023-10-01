@@ -3,7 +3,7 @@ import React, { HTMLAttributes, ReactNode, forwardRef } from 'react';
 import styles from './card.module.css';
 
 export interface CardProps extends HTMLAttributes<HTMLDivElement> {
-  icon: ReactNode;
+  icon?: ReactNode;
 }
 
 export const Card = forwardRef<HTMLDivElement, CardProps>(
@@ -14,7 +14,7 @@ export const Card = forwardRef<HTMLDivElement, CardProps>(
         ref={ref}
         {...props}
       >
-        <div className={styles.iconContainer}>{icon}</div>
+        {icon && <div className={styles.iconContainer}>{icon}</div>}
         <div>{children}</div>
       </div>
     );

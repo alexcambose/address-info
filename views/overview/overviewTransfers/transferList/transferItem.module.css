@@ -1,0 +1,13 @@
+.transferItem {
+  font-size: 1rem;
+  padding: 1em;
+  display: flex;
+}
+.transferItemIcon {
+  font-size: 2em;
+}
+.transferItemHeader {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}

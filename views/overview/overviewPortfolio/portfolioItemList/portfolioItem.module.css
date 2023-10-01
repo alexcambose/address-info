@@ -1,0 +1,30 @@
+.portfolioItem {
+  /**/
+}
+.portfolioItemImage {
+  width: 2em;
+  height: 2em;
+}
+
+.portfolioItemSymbol {
+  font-size: 1.1em;
+  font-weight: 500;
+}
+.portfolioItemNameFull {
+  opacity: 0.8;
+  font-size: 0.8em;
+  font-weight: 300;
+  margin-top: 0.2em;
+}
+
+.portfolioItemValueCrypto {
+  font-size: 1.1em;
+  font-weight: 500;
+}
+
+.portfolioItemValueDollar {
+  opacity: 0.8;
+  font-size: 0.9em;
+  margin-top: 0.2em;
+  font-weight: 300;
+}

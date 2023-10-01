@@ -7,11 +7,11 @@ export interface IconProps extends SVGAttributes<HTMLElement> {
 }
 
 export const Icon = forwardRef<HTMLElement, IconProps>(
-  ({ component: Component, ...props }, ref) => {
+  ({ component: Component, className, ...props }, ref) => {
     return (
       // @ts-ignore
       <Component
-        className={classNames(styles.icon, props.className)}
+        className={classNames(styles.icon, className)}
         ref={ref}
         {...props}
       />

@@ -1,0 +1,12 @@
+.tabMenu {
+  display: flex;
+  height: 3rem;
+  padding: 0.3rem;
+  border-radius: var(--border-radius-default);
+  background-color: var(--color-primary);
+}
+@media screen and (max-width: 600px) {
+  .tabMenu {
+    width: 100%;
+  }
+}

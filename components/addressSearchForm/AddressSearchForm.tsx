@@ -7,6 +7,7 @@ import { Button } from '../base/button';
 import styles from './addressSearchForm.module.css';
 import { HTMLAttributes } from 'react';
 import classNames from 'classnames';
+import { useParams, useRouter } from 'next/navigation';
 
 export interface AddressSearchFormProps
   extends HTMLAttributes<HTMLFormElement> {
@@ -20,25 +21,28 @@ export const AddressSearchForm = ({
   searchButton = true,
   ...props
 }: AddressSearchFormProps) => {
-  const initialValues: AddressFormValues = { address: '' };
+  const params = useParams();
+  const initialValues: AddressFormValues = {
+    address: '',
+  };
+  const router = useRouter();
   return (
     <Formik
       initialValues={initialValues}
       validationSchema={addressSearchFormValidationSchema}
       validateOnBlur
       onSubmit={(values, actions) => {
-        console.log({ values, actions });
-        alert(JSON.stringify(values, null, 2));
+        router.push('/overview/' + values.address);
         actions.setSubmitting(false);
       }}
     >
       <Form {...props} className={classNames(styles.form, props.className)}>
         <InputControl
-          autoFocus
+          autoFocus={searchButton}
           aria-required
           id="address"
           name="address"
-          placeholder="Address"
+          placeholder={initialValues ? (params.address as string) : 'Address'}
           icon={<MagnifyingGlass />}
         />
         {searchButton && (
