@@ -6,7 +6,7 @@ export interface PortfolioItemListProps {
 }
 export const PortfolioItemList = ({ items }: PortfolioItemListProps) => {
   return (
-    <div className={style.portfolioItemList}>
+    <div className={style.portfolioItemList} aria-label="Portfolio">
       {items.map((item) => (
         <PortfolioItem key={item.symbol} {...item} />
       ))}

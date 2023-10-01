@@ -49,7 +49,7 @@ export const AddressSearchForm = ({
           displayHelper={searchButton}
         />
         {searchButton && (
-          <Button>
+          <Button aria-label="Search">
             <MagnifyingGlass weight="bold" />
           </Button>
         )}

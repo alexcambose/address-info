@@ -18,7 +18,7 @@ const icons = {
   },
   ETH: {
     component: EthSVG,
-    accentColor: 'rgb(48, 113, 203)',
+    accentColor: 'rgb(77, 143, 235)',
     containerBackgroundColor: 'rgba(33, 92, 175, 0.1)',
     labelName: 'Ethereum',
   },
@@ -30,7 +30,7 @@ const icons = {
   },
   USDC: {
     component: UsdcSVG,
-    accentColor: 'rgb(39,117,202)',
+    accentColor: 'rgb(42, 130, 224)',
     containerBackgroundColor: 'rgba(39,117,202,0.1)',
     labelName: 'USDC',
   },
@@ -55,7 +55,7 @@ export const PortfolioItemCard = ({ symbol }: PortfolioItemCardProps) => {
       >
         <Icon component={icons[symbol].component} />
       </div>
-      <Text variant="h3" className={styles.title}>
+      <Text variant="h2" className={styles.title}>
         {icons[symbol].labelName}{' '}
         <Text style={{ color: icons[symbol].accentColor }} variant="span">
           ({symbol})

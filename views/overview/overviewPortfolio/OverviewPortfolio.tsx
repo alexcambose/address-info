@@ -7,6 +7,7 @@ import { PortfolioItemList } from './portfolioItemList/PortfolioItemList';
 
 export const OverviewPortfolio = () => {
   const { data, isLoading } = useTokenBalances();
+
   const portfolioItemList = !!data.length ? (
     <PortfolioItemList
       items={
@@ -25,6 +26,7 @@ export const OverviewPortfolio = () => {
       No assets
     </Text>
   );
+
   return (
     <>
       <section className={styles.overviewPortfolioItemCardContainer}>

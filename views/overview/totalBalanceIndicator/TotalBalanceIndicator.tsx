@@ -9,7 +9,7 @@ export const TotalBalanceIndicator = () => {
 
   return (
     <div>
-      <Text className={styles.totalBalanceLabel} variant="h3">
+      <Text className={styles.totalBalanceLabel} variant="h1">
         Total Balance
       </Text>
       {isLoading ? (
