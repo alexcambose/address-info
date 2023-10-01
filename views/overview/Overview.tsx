@@ -25,7 +25,7 @@ const content = {
 
 export const Overview = () => {
   const [selectedTabId, setSelectedTabId] = useState<TabItemProps['id']>(
-    menu[1].id
+    menu[0].id
   );
   return (
     <>

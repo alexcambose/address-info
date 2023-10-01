@@ -5,7 +5,7 @@ import { Input, InputProps } from '.';
 import styles from './inputControl.module.css';
 
 export interface InputControlProps extends InputProps {
-  helperContent?: ReactNode;
+  helperContent?: string;
   icon?: ReactNode;
   displayHelper?: boolean;
 }
@@ -18,6 +18,7 @@ export const InputControl = forwardRef<HTMLInputElement, InputControlProps>(
           const hasError = !!meta.value && meta.touched && !!meta.error;
           const shouldDisplayHelper =
             (hasError || helperContent) && displayHelper;
+          const errorMessage = meta.error ? meta.error : helperContent;
           return (
             <div className={styles.inputControlContainer}>
               <Input
@@ -26,6 +27,8 @@ export const InputControl = forwardRef<HTMLInputElement, InputControlProps>(
                 {...field}
                 {...props}
                 ref={ref}
+                aria-invalid={hasError}
+                aria-errormessage={hasError ? errorMessage : undefined}
               />
               {shouldDisplayHelper && (
                 <div

@@ -10,6 +10,7 @@
   opacity: 0.6;
   cursor: pointer;
   background-color: transparent;
+  border: none;
 }
 .tabItem:not(:last-of-type) {
   margin-right: 0.2em;

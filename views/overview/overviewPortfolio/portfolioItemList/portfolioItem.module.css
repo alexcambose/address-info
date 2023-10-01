@@ -31,9 +31,9 @@
 }
 @media screen and (max-width: 479px) {
   .portfolioItemSymbol {
-  font-size: 1em;
-  font-weight: 400;
-}
+    font-size: 1em;
+    font-weight: 400;
+  }
 
   .portfolioItemValueCrypto {
     font-size: 1em;

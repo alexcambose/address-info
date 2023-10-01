@@ -7,8 +7,7 @@ import styles from './overviewHeader.module.css';
 
 export const OverviewHeader = () => {
   const { isLoading, data } = useTokenBalances();
-  const totalBalance =
-    data?.find((e) => e.symbol === 'ETH')?.totalBalance || 0;
+  const totalBalance = data?.find((e) => e.symbol === 'ETH')?.totalBalance || 0;
   return (
     <header className={styles.header}>
       <a href="/">

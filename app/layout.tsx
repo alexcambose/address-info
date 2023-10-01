@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { Rubik } from 'next/font/google';
 import 'react-loading-skeleton/dist/skeleton.css';
 import { Providers } from '../providers/Providers';
-import './globals.css';
+import '../style/globals.css';
 import styles from './layout.module.css';
 
 const inter = Rubik({

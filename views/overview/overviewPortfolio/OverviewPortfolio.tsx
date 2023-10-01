@@ -27,14 +27,16 @@ export const OverviewPortfolio = () => {
   );
   return (
     <>
-      <div className={styles.overviewPortfolioItemCardContainer}>
+      <section className={styles.overviewPortfolioItemCardContainer}>
         <PortfolioItemCard symbol="BTC" />
         <PortfolioItemCard symbol="ETH" />
         <PortfolioItemCard symbol="USDT" />
         <PortfolioItemCard symbol="USDC" />
-      </div>
-      <Text variant="h2">All assets</Text>
-      {isLoading ? <ListItemSkeleton /> : portfolioItemList}
+      </section>
+      <section>
+        <Text variant="h2">All assets</Text>
+        {isLoading ? <ListItemSkeleton /> : portfolioItemList}
+      </section>
     </>
   );
 };

@@ -1,5 +1,5 @@
 import { ReactNode } from 'react';
-import { IconProvider } from './IconProvider';
+import { IconProvider } from './icon/IconProvider';
 import { QueryProvider } from './QueryProvider';
 
 export interface ProvidersProps {

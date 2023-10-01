@@ -9,7 +9,7 @@ export const IconProvider = ({ children }: { children: ReactNode }) => {
   return (
     <IconContext.Provider
       value={{
-        className: classNames(styles.icon),
+        className: 'icon',
       }}
     >
       {children}
