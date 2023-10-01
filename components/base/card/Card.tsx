@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import React, { HTMLAttributes, ReactNode, forwardRef } from 'react';
+import { HTMLAttributes, ReactNode, forwardRef } from 'react';
 import styles from './card.module.css';
 
 export interface CardProps extends HTMLAttributes<HTMLDivElement> {

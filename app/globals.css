@@ -1,19 +1,22 @@
-@import "normalize.css";
-
+@import 'normalize.css';
 :root {
+  /** Colors **/
   --font-color: #000;
-  --background-color: #d6dbdc;
-  --border-radius-default: 0.9rem;
-  --color-primary: #a0a0a0;
-  --color-primary-hover: #b0b0b0;
+  --background-color: #ffffff;
+  --color-primary: #e0e0e0;
+  --color-primary-hover: #cdcdcd;
+  --color-accent: #000;
   --color-error: rgb(159, 0, 0);
-  --box-shadow-default: 1px 4px 20px 8px #0f0f0f;
+
+  --border-radius-default: 0.9rem;
+  --box-shadow-default: 1px 4px 20px 8px #f1f1f1;
   --transition-fast: all 50ms;
   --transition-default: all 150ms;
-  --color-accent: #000;  
+  --footer-height: 4rem;
 }
 
 @media (prefers-color-scheme: dark) {
+  /* Dark mode color adjustments */
   :root {
     --font-color: #fff;
     --background-color: #131316;
@@ -21,9 +24,14 @@
     --color-primary-hover: #26262a;
     --color-accent: #c0f8ff;
     --color-accent-hover: #aadce3;
+
+    --box-shadow-default: 1px 4px 20px 8px #0f0f0f;
+  }
+  /* Adjust the color scheme of HTML elements for dark mode */
+  html {
+    color-scheme: dark;
   }
 }
-
 
 body {
   color: var(--font-color);
@@ -33,10 +41,4 @@ body {
 a {
   color: inherit;
   text-decoration: none;
-}
-
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
 }

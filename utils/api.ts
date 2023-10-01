@@ -10,7 +10,7 @@ export const fetchTokenBalances = async (address: string) => {
   ]);
   return heads;
 };
-export const fetchTransfers = async (address: string) => {
+export const fetchTransfers = async (address: string): Promise<{ result: any[] }> => {
   return fetch(
     `https://api.etherscan.io/api?module=account&action=tokentx&address=${address}&page=1&offset=100&startblock=0&sort=desc&apikey=${process.env.NEXT_PUBLIC_ETHERSCAN_API_KEY}`
   ).then((e) => e.json());

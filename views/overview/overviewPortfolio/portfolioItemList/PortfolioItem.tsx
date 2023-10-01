@@ -1,8 +1,8 @@
 import Image from 'next/image';
 import { ListItem } from '../../../../components/base/list';
 import { useExplorerUrl } from '../../../../hooks';
-import style from './portfolioItem.module.css';
 import { localizedStringNumber } from '../../../../utils/stringUtils';
+import style from './portfolioItem.module.css';
 
 export interface PortfolioItemProps {
   iconUrl: string;

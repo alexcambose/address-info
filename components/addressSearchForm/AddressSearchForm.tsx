@@ -1,13 +1,13 @@
 'use client';
 import { MagnifyingGlass } from '@phosphor-icons/react';
-import { Form, Formik } from 'formik';
-import { InputControl } from '../base/input/InputControl';
-import { addressSearchFormValidationSchema } from './validationSchema';
-import { Button } from '../base/button';
-import styles from './addressSearchForm.module.css';
-import { HTMLAttributes } from 'react';
 import classNames from 'classnames';
+import { Form, Formik } from 'formik';
 import { useParams, useRouter } from 'next/navigation';
+import { HTMLAttributes } from 'react';
+import { Button } from '../base/button';
+import { InputControl } from '../base/input/InputControl';
+import styles from './addressSearchForm.module.css';
+import { addressSearchFormValidationSchema } from './validationSchema';
 
 export interface AddressSearchFormProps
   extends HTMLAttributes<HTMLFormElement> {

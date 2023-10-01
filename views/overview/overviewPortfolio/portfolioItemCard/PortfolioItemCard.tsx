@@ -42,7 +42,7 @@ export interface PortfolioItemCardProps {
 export const PortfolioItemCard = ({ symbol }: PortfolioItemCardProps) => {
   const { data, isLoading } = useTokenBalances();
   if (isLoading) return null;
-  const token = data.tokens?.find((e) => e.symbol === symbol) || {
+  const token = data.find((e) => e.symbol === symbol) || {
     totalAmountUSD: 0,
     totalBalance: 0,
   };

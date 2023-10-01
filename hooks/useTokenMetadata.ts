@@ -20,6 +20,6 @@ export const useTokenMetadata = () => {
   return {
     isLoading,
     error,
-    data: data?.['tokens']?.['1'] as TokenMetadataItem[],
+    data: data?.['tokens']?.['1'] as TokenMetadataItem[] | undefined,
   };
 };

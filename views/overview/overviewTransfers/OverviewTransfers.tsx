@@ -1,7 +1,6 @@
-import BigNumber from 'bignumber.js';
 import { Text } from '../../../components/base/typography';
-import { TransfersList } from './transferList/TransferList';
 import { useTokenTransfers } from '../../../hooks';
+import { TransfersList } from './transferList/TransferList';
 
 export const OverviewTransfers = () => {
   const { data, isLoading } = useTokenTransfers();
@@ -9,7 +8,13 @@ export const OverviewTransfers = () => {
   return (
     <div>
       <Text variant="h1">Token Transfers (ERC20)</Text>
-      <TransfersList items={data} />
+      {!!data.length ? (
+        <TransfersList items={data} />
+      ) : (
+        <Text variant="p" styling="status">
+          No token transfers
+        </Text>
+      )}
     </div>
   );
 };

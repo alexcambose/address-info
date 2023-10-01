@@ -24,7 +24,7 @@ export const ListItem = forwardRef<HTMLDivElement, ListItemProps>(
     );
     if (href) {
       return (
-        <a className={styles.listItemAnchor}  href={href} target="_blank">
+        <a className={styles.listItemAnchor} href={href} target="_blank">
           {content}
         </a>
       );

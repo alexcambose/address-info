@@ -6,8 +6,7 @@ export const useTotalBalanceUsd = () => {
   return {
     ...props,
     data: formatDecimals(
-      data.tokens?.reduce((acc, e) => acc + parseFloat(e.totalAmountUSD), 0) ||
-        '0'
+      data.reduce((acc, e) => acc + parseFloat(e.totalAmountUSD), 0) || '0'
     ),
   };
 };

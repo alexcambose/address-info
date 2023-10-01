@@ -1,9 +1,9 @@
-import { HTMLAttributes, ReactNode } from 'react';
-import { Icon } from '../base/icon';
+import { HTMLAttributes } from 'react';
+import Skeleton from 'react-loading-skeleton';
 import SvgETH from '../../assets/eth.svg';
 import { Card } from '../base/card';
+import { Icon } from '../base/icon';
 import styles from './accountIndicator.module.css';
-import Skeleton from 'react-loading-skeleton';
 
 export interface AccountIndicatorProps extends HTMLAttributes<HTMLFormElement> {
   symbol?: string;

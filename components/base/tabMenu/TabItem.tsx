@@ -1,6 +1,6 @@
+import classNames from 'classnames';
 import { HTMLAttributes, useCallback } from 'react';
 import style from './tabItem.module.css';
-import classNames from 'classnames';
 
 export interface TabItemProps
   extends Omit<HTMLAttributes<HTMLDivElement>, 'onClick' | 'id'> {

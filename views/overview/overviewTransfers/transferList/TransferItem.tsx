@@ -1,15 +1,15 @@
 import { DownloadSimple, UploadSimple } from '@phosphor-icons/react';
-import style from './transferItem.module.css';
-import { Icon } from '../../../../components/base/icon';
+import dayjs from 'dayjs';
+import Image from 'next/image';
 import { ReactElement } from 'react';
+import { Icon } from '../../../../components/base/icon';
+import { ListItem } from '../../../../components/base/list';
+import { useExplorerUrl } from '../../../../hooks';
 import {
   localizedStringNumber,
   trimAddress,
 } from '../../../../utils/stringUtils';
-import dayjs from 'dayjs';
-import { ListItem } from '../../../../components/base/list';
-import Image from 'next/image';
-import { useExplorerUrl } from '../../../../hooks';
+import style from './transferItem.module.css';
 
 export interface TransferItemProps {
   timestamp: number;

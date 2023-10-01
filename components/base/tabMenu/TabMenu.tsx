@@ -1,7 +1,7 @@
 import classNames from 'classnames';
-import React, { HTMLAttributes, forwardRef } from 'react';
-import styles from './tabMenu.module.css';
+import { HTMLAttributes, forwardRef } from 'react';
 import { TabItem, TabItemProps } from './TabItem';
+import styles from './tabMenu.module.css';
 
 export interface TabMenuProps extends HTMLAttributes<HTMLDivElement> {
   tabs: {

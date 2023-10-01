@@ -1,3 +1,10 @@
+.homeContainer {
+  height: calc(100vh - var(--footer-height));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
 .searchForm {
   margin-top: 2rem;
 }

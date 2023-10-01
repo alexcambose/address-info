@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import React, { ButtonHTMLAttributes, forwardRef } from 'react';
+import { ButtonHTMLAttributes, forwardRef } from 'react';
 import styles from './button.module.css';
 
 export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {}

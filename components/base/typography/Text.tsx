@@ -1,4 +1,5 @@
-import React, { forwardRef, HTMLProps, ReactNode } from 'react';
+import classNames from 'classnames';
+import { forwardRef, HTMLProps } from 'react';
 import styles from './text.module.css';
 
 export type TextVariant =
@@ -11,15 +12,23 @@ export type TextVariant =
   | 'span'
   | 'p';
 
+export type TextStylingVariant = 'normal' | 'status';
 export interface TextProps extends HTMLProps<HTMLElement> {
   variant?: TextVariant; // You can extend this as needed
+  styling?: TextStylingVariant;
 }
 
 export const Text = forwardRef<HTMLElement, TextProps>(
-  ({ children, variant = 'p', ...rest }, ref) => {
+  ({ children, styling = 'normal', variant = 'p', ...rest }, ref) => {
     const Tag = variant as JSX.ElementType;
     return (
-      <Tag className={styles[variant]} ref={ref} {...rest}>
+      <Tag
+        className={classNames(styles[variant], {
+          [styles.textStatus]: styling === 'status',
+        })}
+        ref={ref}
+        {...rest}
+      >
         {children}
       </Tag>
     );

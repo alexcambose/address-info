@@ -19,7 +19,7 @@ export const useTokenTransfers = () => {
     error,
     data: data?.result
       .map((e) => {
-        const tokenItemMetadata = tokenMetadata.find(
+        const tokenItemMetadata = tokenMetadata?.find(
           (tm) => tm.address === (e.contractAddress || ethers.ZeroAddress)
         );
         if (!tokenItemMetadata) return null;

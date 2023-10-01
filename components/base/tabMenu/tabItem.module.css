@@ -14,7 +14,8 @@
 .tabItem:not(:last-of-type) {
   margin-right: 0.2em;
 }
-.tabItemSelected, .tabItem:hover {
+.tabItemSelected,
+.tabItem:hover {
   background-color: var(--color-primary-hover);
   opacity: 1;
 }

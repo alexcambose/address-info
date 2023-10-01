@@ -15,18 +15,24 @@ export const OverviewPortfolio = () => {
         <PortfolioItemCard symbol="USDC" />
       </div>
       <Text variant="h2">All assets</Text>
-      <PortfolioItemList
-        items={
-          data.tokens?.map((e) => ({
-            iconUrl: e.logoURI,
-            symbol: e.symbol,
-            name: e.name,
-            amountCrypto: e.totalBalance,
-            amountDollar: e.priceUSD,
-            contractAddress: e.contractAddress,
-          })) || []
-        }
-      />
+      {!!data.length ? (
+        <PortfolioItemList
+          items={
+            data?.map((e) => ({
+              iconUrl: e.logoURI,
+              symbol: e.symbol,
+              name: e.name,
+              amountCrypto: e.totalBalance,
+              amountDollar: e.priceUSD,
+              contractAddress: e.contractAddress,
+            })) || []
+          }
+        />
+      ) : (
+        <Text variant="p" styling="status">
+          No assets
+        </Text>
+      )}
     </>
   );
 };

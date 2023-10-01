@@ -51,7 +51,7 @@ const generateTokenBalances = (
         ),
       };
     })
-    .filter((e) => !!e) as TokenBalance[];
+    .filter((e) => !!e && e.totalBalance > 0) as TokenBalance[];
 };
 
 export const useTokenBalances = () => {
@@ -64,10 +64,7 @@ export const useTokenBalances = () => {
   return {
     isLoading: isLoading || isLoadingMetadata,
     error,
-    data: data
-      ? {
-          tokens: generateTokenBalances(data, tokenMetadata),
-        }
-      : {},
+    data:
+      data && tokenMetadata ? generateTokenBalances(data, tokenMetadata) : [],
   };
 };
