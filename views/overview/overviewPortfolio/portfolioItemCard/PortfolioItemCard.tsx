@@ -5,6 +5,7 @@ import UsdtSVG from '../../../../assets/usdt.svg';
 import { Icon } from '../../../../components/base/icon';
 import { Text } from '../../../../components/base/typography';
 import { useTokenBalances } from '../../../../hooks';
+import { localizedStringNumber } from '../../../../utils/stringUtils';
 import styles from './portfolioItemCard.module.css';
 
 const icons = {
@@ -60,10 +61,10 @@ export const PortfolioItemCard = ({ symbol }: PortfolioItemCardProps) => {
         </Text>
       </Text>
       <Text variant="span" className={styles.cryptoValue}>
-        {token.totalBalance} <small>{symbol}</small>
+        {localizedStringNumber(token.totalBalance)} <small>{symbol}</small>
       </Text>
       <Text variant="span" className={styles.dollarValue}>
-        ${token.totalAmountUSD}
+        ${localizedStringNumber(token.totalAmountUSD)}
       </Text>
     </div>
   );

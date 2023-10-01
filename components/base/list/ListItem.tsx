@@ -6,11 +6,12 @@ export interface ListItemProps extends HTMLAttributes<HTMLDivElement> {
   icon: ReactNode;
   leftSide: ReactNode;
   rightSide: ReactNode;
+  href?: string;
 }
 
 export const ListItem = forwardRef<HTMLDivElement, ListItemProps>(
-  ({ icon, leftSide, rightSide, ...props }, ref) => {
-    return (
+  ({ icon, href, leftSide, rightSide, ...props }, ref) => {
+    const content = (
       <div
         className={classNames(styles.listItem, props.className)}
         ref={ref}
@@ -21,6 +22,14 @@ export const ListItem = forwardRef<HTMLDivElement, ListItemProps>(
         <div className={styles.listItemRightSide}>{rightSide}</div>
       </div>
     );
+    if (href) {
+      return (
+        <a className={styles.listItemAnchor}  href={href} target="_blank">
+          {content}
+        </a>
+      );
+    }
+    return content;
   }
 );
 

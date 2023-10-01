@@ -3,26 +3,30 @@ import { useQuery } from 'react-query';
 import { useAddress } from '.';
 import { fetchTokenBalances } from '../utils/api';
 import { TokenMetadataItem, useTokenMetadata } from './useTokenMetadata';
+import { formatDecimals } from '../utils/stringUtils';
+
 export interface TokenBalance {
   totalBalance: string;
   symbol: string;
+  name: string;
   contractAddress: string;
   logoURI: string;
   priceUSD: string;
   totalAmountUSD: string;
 }
+
 const generateTokenBalances = (
   tokenBalances: any,
   tokenMetadata: TokenMetadataItem[]
 ) => {
   return [
-    ...tokenBalances.result,
     {
       symbol: 'ETH',
       totalBalance: new BigNumber(tokenBalances.nativeTokenBalance)
         .times(10 ** 18)
         .toString(),
     },
+    ...tokenBalances.result,
   ]
     .map((e) => {
       const tokenItemMetadata = tokenMetadata.find(
@@ -35,22 +39,26 @@ const generateTokenBalances = (
           .div(10 ** tokenItemMetadata.decimals)
           .toFixed(2),
         symbol: tokenItemMetadata.symbol,
+        name: tokenItemMetadata.name,
         contractAddress: tokenItemMetadata.address,
         logoURI: tokenItemMetadata.logoURI,
         priceUSD: tokenItemMetadata.priceUSD,
-        totalAmountUSD: new BigNumber(e.totalBalance)
-          .times(tokenItemMetadata.priceUSD)
-          .div(10 ** tokenItemMetadata.decimals)
-          .toFixed(2),
+        totalAmountUSD: formatDecimals(
+          new BigNumber(e.totalBalance)
+            .times(tokenItemMetadata.priceUSD)
+            .div(10 ** tokenItemMetadata.decimals)
+            .toFixed(2)
+        ),
       };
     })
     .filter((e) => !!e) as TokenBalance[];
 };
+
 export const useTokenBalances = () => {
   const { data: tokenMetadata, isLoading: isLoadingMetadata } =
     useTokenMetadata();
   const address = useAddress();
-  const { isLoading, error, data } = useQuery<any>('tokenBalances', () =>
+  const { isLoading, error, data } = useQuery<any>('tokenBalances', async () =>
     fetchTokenBalances(address)
   );
   return {

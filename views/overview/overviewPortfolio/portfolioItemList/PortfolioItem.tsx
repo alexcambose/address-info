@@ -1,6 +1,8 @@
-import { ListItem } from '../../../../components/base/list';
-import style from './portfolioItem.module.css';
 import Image from 'next/image';
+import { ListItem } from '../../../../components/base/list';
+import { useExplorerUrl } from '../../../../hooks';
+import style from './portfolioItem.module.css';
+import { localizedStringNumber } from '../../../../utils/stringUtils';
 
 export interface PortfolioItemProps {
   iconUrl: string;
@@ -8,6 +10,7 @@ export interface PortfolioItemProps {
   name: string;
   amountCrypto: string;
   amountDollar: string;
+  contractAddress: string;
 }
 export const PortfolioItem = ({
   iconUrl,
@@ -15,16 +18,19 @@ export const PortfolioItem = ({
   name,
   amountCrypto,
   amountDollar,
+  contractAddress,
 }: PortfolioItemProps) => {
+  const openExplorer = useExplorerUrl(contractAddress);
   return (
     <ListItem
+      href={openExplorer}
       icon={
         <Image
           className={style.portfolioItemImage}
           src={iconUrl}
           width={100}
           height={100}
-          alt="Picture of the author"
+          alt={symbol + ' logo'}
         />
       }
       leftSide={
@@ -36,16 +42,13 @@ export const PortfolioItem = ({
       rightSide={
         <>
           <span className={style.portfolioItemValueCrypto}>
-            {amountCrypto} {symbol}
+            {localizedStringNumber(amountCrypto)} {symbol}
           </span>
           <span className={style.portfolioItemValueDollar}>
-            ${amountDollar}
+            ${localizedStringNumber(amountDollar)}
           </span>
         </>
       }
-    >
-      {/* <div className={style.portfolioItemName}></div>
-      <div className={style.portfolioItemValue}></div> */}
-    </ListItem>
+    />
   );
 };

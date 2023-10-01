@@ -7,9 +7,14 @@
   border-radius: var(--border-radius-default);
   transition: var(--transition-fast);
   margin-bottom: 0.2em;
+  transform: translateY(0);
 }
 .listItem:hover {
   background-color: var(--color-primary-hover);
+  cursor: pointer;
+}
+.listItem:active {
+  transform: translateY(1px);
   cursor: pointer;
 }
 .listItemIcon {
@@ -23,6 +28,8 @@
 .listItemRightSide {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  width: 16vw;
+  align-items: flex-end;
+}
+.listItemAnchor {
+  display: flex;
 }

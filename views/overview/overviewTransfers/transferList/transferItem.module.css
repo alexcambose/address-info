@@ -11,3 +11,23 @@
   flex-direction: column;
   flex: 1;
 }
+.transferItemSubtitle {
+  margin-top: 0.2em;
+  font-size: 0.9em;
+  opacity: 0.7;
+}
+.transferItemDetails {
+  display: flex;
+  align-items: flex-end;
+  flex-direction: column;
+}
+.transferItemValue {
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+}
+.transferItemDetailsImage {
+  width: 1.4em;
+  height: 1.4em;
+  margin-right: 0.3em;
+}

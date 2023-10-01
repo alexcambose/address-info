@@ -1,12 +1,13 @@
 import { useTokenBalances } from '.';
+import { formatDecimals } from '../utils/stringUtils';
 
 export const useTotalBalanceUsd = () => {
   const { data, ...props } = useTokenBalances();
   return {
     ...props,
-    data: data.tokens?.reduce(
-      (acc, e) => acc + parseFloat(e.totalAmountUSD),
-      0
+    data: formatDecimals(
+      data.tokens?.reduce((acc, e) => acc + parseFloat(e.totalAmountUSD), 0) ||
+        '0'
     ),
   };
 };

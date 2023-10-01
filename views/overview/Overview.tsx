@@ -1,13 +1,11 @@
 'use client';
 import { useState } from 'react';
 import { TabItemProps, TabMenu } from '../../components/base/tabMenu';
-import { OverviewHeader } from './overviewHeader/OverviewHeader';
-import { TotalBalanceIndicator } from './totalBalanceIndicator/TotalBalanceIndicator';
 import style from './overview.module.css';
+import { OverviewHeader } from './overviewHeader/OverviewHeader';
 import { OverviewPortfolio } from './overviewPortfolio/OverviewPortfolio';
 import { OverviewTransfers } from './overviewTransfers/OverviewTransfers';
-import { fetchWalletTransfers } from '../../utils/api';
-import { useRouter } from 'next/navigation';
+import { TotalBalanceIndicator } from './totalBalanceIndicator/TotalBalanceIndicator';
 
 const menu = [
   {
@@ -16,7 +14,7 @@ const menu = [
   },
   {
     id: '2',
-    label: 'Transfers',
+    label: 'Token Transfers',
   },
 ];
 
@@ -27,10 +25,8 @@ const content = {
 
 export const Overview = () => {
   const [selectedTabId, setSelectedTabId] = useState<TabItemProps['id']>(
-    menu[0].id
+    menu[1].id
   );
-  const router = useRouter();
-  console.log(router);
   return (
     <>
       <OverviewHeader />
