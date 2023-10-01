@@ -42,8 +42,11 @@ export const AddressSearchForm = ({
           aria-required
           id="address"
           name="address"
-          placeholder={initialValues ? (params.address as string) : 'Address'}
+          aria-placeholder="Address"
+          aria-label="Address input"
+          placeholder={params.address ? (params.address as string) : 'Address'}
           icon={<MagnifyingGlass />}
+          displayHelper={searchButton}
         />
         {searchButton && (
           <Button>

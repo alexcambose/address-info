@@ -7,17 +7,19 @@ import styles from './inputControl.module.css';
 export interface InputControlProps extends InputProps {
   helperContent?: ReactNode;
   icon?: ReactNode;
+  displayHelper?: boolean;
 }
 
 export const InputControl = forwardRef<HTMLInputElement, InputControlProps>(
-  ({ helperContent, icon, ...props }, ref) => {
+  ({ helperContent, displayHelper = true, icon, ...props }, ref) => {
     return (
       <Field name={props.name}>
         {({ field, meta }: FieldProps) => {
           const hasError = !!meta.value && meta.touched && !!meta.error;
-          const shouldDisplayHelper = hasError || helperContent;
+          const shouldDisplayHelper =
+            (hasError || helperContent) && displayHelper;
           return (
-            <>
+            <div className={styles.inputControlContainer}>
               <Input
                 type="text"
                 hasError={hasError}
@@ -35,7 +37,7 @@ export const InputControl = forwardRef<HTMLInputElement, InputControlProps>(
                   {meta.error ? meta.error : helperContent}
                 </div>
               )}
-            </>
+            </div>
           );
         }}
       </Field>

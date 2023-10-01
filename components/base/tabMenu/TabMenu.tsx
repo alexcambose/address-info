@@ -15,22 +15,25 @@ export interface TabMenuProps extends HTMLAttributes<HTMLDivElement> {
 export const TabMenu = forwardRef<HTMLDivElement, TabMenuProps>(
   ({ tabs, selectedId, onSelectedIdChange, ...props }, ref) => {
     return (
-      <div
+      <nav
         className={classNames(styles.tabMenu, props.className)}
         ref={ref}
         {...props}
       >
-        {tabs.map((tab) => (
-          <TabItem
-            key={tab.id}
-            id={tab.id}
-            onClick={onSelectedIdChange}
-            isSelected={tab.id === selectedId}
-          >
-            {tab.label}
-          </TabItem>
-        ))}
-      </div>
+        {/* this extra container is required due to padding issues */}
+        <div className={classNames(styles.tabMenuContainer)}>
+          {tabs.map((tab) => (
+            <TabItem
+              key={tab.id}
+              id={tab.id}
+              onClick={onSelectedIdChange}
+              isSelected={tab.id === selectedId}
+            >
+              {tab.label}
+            </TabItem>
+          ))}
+        </div>
+      </nav>
     );
   }
 );

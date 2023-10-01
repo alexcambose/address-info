@@ -1,3 +1,4 @@
+import { ListItemSkeleton } from '../../../components/base/list';
 import { Text } from '../../../components/base/typography';
 import { useTokenBalances } from '../../../hooks';
 import styles from './overviewPortfolio.module.css';
@@ -6,6 +7,24 @@ import { PortfolioItemList } from './portfolioItemList/PortfolioItemList';
 
 export const OverviewPortfolio = () => {
   const { data, isLoading } = useTokenBalances();
+  const portfolioItemList = !!data.length ? (
+    <PortfolioItemList
+      items={
+        data?.map((e) => ({
+          iconUrl: e.logoURI,
+          symbol: e.symbol,
+          name: e.name,
+          amountCrypto: e.totalBalance,
+          amountDollar: e.priceUSD,
+          contractAddress: e.contractAddress,
+        })) || []
+      }
+    />
+  ) : (
+    <Text variant="p" styling="status">
+      No assets
+    </Text>
+  );
   return (
     <>
       <div className={styles.overviewPortfolioItemCardContainer}>
@@ -15,24 +34,7 @@ export const OverviewPortfolio = () => {
         <PortfolioItemCard symbol="USDC" />
       </div>
       <Text variant="h2">All assets</Text>
-      {!!data.length ? (
-        <PortfolioItemList
-          items={
-            data?.map((e) => ({
-              iconUrl: e.logoURI,
-              symbol: e.symbol,
-              name: e.name,
-              amountCrypto: e.totalBalance,
-              amountDollar: e.priceUSD,
-              contractAddress: e.contractAddress,
-            })) || []
-          }
-        />
-      ) : (
-        <Text variant="p" styling="status">
-          No assets
-        </Text>
-      )}
+      {isLoading ? <ListItemSkeleton /> : portfolioItemList}
     </>
   );
 };

@@ -26,6 +26,7 @@ export const TabItem = ({
         [style.tabItemSelected]: isSelected,
       })}
       onClick={onClickHandler}
+      aria-current={isSelected ? 'page' : undefined}
       {...props}
     >
       {children}

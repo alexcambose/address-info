@@ -29,3 +29,14 @@
   margin-top: 0.2em;
   font-weight: 300;
 }
+@media screen and (max-width: 479px) {
+  .portfolioItemSymbol {
+  font-size: 1em;
+  font-weight: 400;
+}
+
+  .portfolioItemValueCrypto {
+    font-size: 1em;
+    font-weight: 400;
+  }
+}

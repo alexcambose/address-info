@@ -51,6 +51,6 @@ export const useTokenTransfers = () => {
           ),
         };
       })
-      .filter((e) => !!e) as TransferItemProps[],
+      .filter((e) => !!e) as TransferItemProps[] | undefined,
   };
 };

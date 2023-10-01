@@ -6,6 +6,7 @@ import { Icon } from '../../../../components/base/icon';
 import { Text } from '../../../../components/base/typography';
 import { useTokenBalances } from '../../../../hooks';
 import { localizedStringNumber } from '../../../../utils/stringUtils';
+import { PortfolioItemCardSkeleton } from './PortfolioItemCardSkeleton';
 import styles from './portfolioItemCard.module.css';
 
 const icons = {
@@ -41,7 +42,7 @@ export interface PortfolioItemCardProps {
 
 export const PortfolioItemCard = ({ symbol }: PortfolioItemCardProps) => {
   const { data, isLoading } = useTokenBalances();
-  if (isLoading) return null;
+  if (isLoading) return <PortfolioItemCardSkeleton />;
   const token = data.find((e) => e.symbol === symbol) || {
     totalAmountUSD: 0,
     totalBalance: 0,

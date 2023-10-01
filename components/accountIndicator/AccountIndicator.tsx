@@ -18,7 +18,7 @@ export const AccountIndicator = ({
   if (isLoading) {
     return (
       <Card>
-        <Skeleton width={50} />
+        <Skeleton width={80} />
       </Card>
     );
   }

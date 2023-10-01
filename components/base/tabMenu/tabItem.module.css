@@ -22,7 +22,7 @@
 .tabItemSelected {
   cursor: default;
 }
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 768px) {
   .tabItem {
     width: 100%;
   }
