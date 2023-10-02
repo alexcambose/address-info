@@ -9,7 +9,7 @@ import { ethers } from 'ethers';
 
 export const useTokenTransfers = () => {
   const address = useAddress();
-  const { isLoading, error, data } = useQuery('tokenTransfers', () =>
+  const { isLoading, error, data } = useQuery(['tokenTransfers', address], () =>
     fetchTransfers(address)
   );
   const { data: tokenMetadata, isLoading: isTokenMetadataLoading } =

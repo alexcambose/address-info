@@ -60,8 +60,9 @@ export const useTokenBalances = () => {
   const { data: tokenMetadata, isLoading: isLoadingMetadata } =
     useTokenMetadata();
   const address = useAddress();
-  const { isLoading, error, data } = useQuery<any>('tokenBalances', async () =>
-    fetchTokenBalances(address)
+  const { isLoading, error, data } = useQuery<any>(
+    ['tokenBalances', address],
+    async () => fetchTokenBalances(address)
   );
   return {
     isLoading: isLoading || isLoadingMetadata,
