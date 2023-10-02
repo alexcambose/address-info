@@ -13,12 +13,12 @@
   transform: translateY(0) scale(1);
   transition: var(--transition-default);
 }
-.portfolioItemCard:not(.portfolioItemCardDisabled):hover {
+.portfolioItemCard[aria-disabled='false']:hover {
   transform: translateY(-6px) scale(1.01);
   box-shadow: var(--box-shadow-large);
   cursor: pointer;
 }
-.portfolioItemCardDisabled {
+.portfolioItemCard[aria-disabled='true'] {
   opacity: 0.7;
 }
 

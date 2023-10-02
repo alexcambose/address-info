@@ -1,4 +1,3 @@
-import classNames from 'classnames';
 import BtcSVG from '../../../../assets/btc.svg';
 import EthSVG from '../../../../assets/eth.svg';
 import UsdcSVG from '../../../../assets/usdc.svg';
@@ -53,9 +52,8 @@ export const PortfolioItemCard = ({ symbol }: PortfolioItemCardProps) => {
 
   const content = (
     <div
-      className={classNames(styles.portfolioItemCard, {
-        [styles.portfolioItemCardDisabled]: token.totalBalance === '0',
-      })}
+      className={styles.portfolioItemCard}
+      aria-disabled={token.totalBalance === '0'}
     >
       <div
         style={{ backgroundColor: icons[symbol].containerBackgroundColor }}

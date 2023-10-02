@@ -9,8 +9,8 @@
   --color-error: rgb(159, 0, 0);
 
   --border-radius-default: 0.9rem;
-  --box-shadow-default: 1px 4px 20px 6px #f1f1f1;
-  --box-shadow-large: 1px 4px 30px 6px #f1f1f1;
+  --box-shadow-default: 1px 4px 20px 6px #f5f5f5;
+  --box-shadow-large: 1px 4px 30px 6px #f5f5f5;
   --transition-fast: all 50ms;
   --transition-default: all 150ms;
   --footer-height: 4rem;

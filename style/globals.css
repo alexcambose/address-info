@@ -38,7 +38,6 @@ a {
 @media screen and (max-width: 479px) {
   :root {
     --font-size: 0.9rem;
-    --box-shadow-default: 1px 4px 10px 8px rgba(15, 15, 15, 0.7);
   }
 }
 @media screen and (max-width: 768px) {
