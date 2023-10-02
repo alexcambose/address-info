@@ -4,12 +4,20 @@
   column-gap: 8vw;
   align-items: center;
 }
-
+@media screen and (max-width: 479px) {
+  .title {
+    font-size: 1.5rem;
+  }
+  .header {
+    margin-top: 0.3rem;
+  }
+}
 /* Apply media query for smaller screens */
 @media screen and (max-width: 768px) {
   .header {
     grid-template-columns: 1fr auto;
     grid-template-rows: auto auto;
+    row-gap: 1rem;
   }
   .form {
     grid-column: 1 / span 2;
