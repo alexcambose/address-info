@@ -14,7 +14,7 @@ export const OverviewTransfers = () => {
   );
   return (
     <div>
-      <Text variant="h1">Token Transfers (ERC20)</Text>
+      <Text variant="h2">Token Transfers (ERC20)</Text>
       {isLoading ? <ListItemSkeleton /> : tokenTransfers}
     </div>
   );
