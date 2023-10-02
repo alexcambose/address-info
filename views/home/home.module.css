@@ -1,5 +1,5 @@
 .homeContainer {
-  height: calc(100vh - var(--footer-height));
+  height: calc(80vh);
   display: flex;
   align-items: center;
   justify-content: center;
