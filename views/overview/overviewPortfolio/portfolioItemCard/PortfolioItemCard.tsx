@@ -1,10 +1,11 @@
+import classNames from 'classnames';
 import BtcSVG from '../../../../assets/btc.svg';
 import EthSVG from '../../../../assets/eth.svg';
 import UsdcSVG from '../../../../assets/usdc.svg';
 import UsdtSVG from '../../../../assets/usdt.svg';
 import { Icon } from '../../../../components/base/icon';
 import { Text } from '../../../../components/base/typography';
-import { useTokenBalances } from '../../../../hooks';
+import { useExplorerUrl, useTokenBalances } from '../../../../hooks';
 import { localizedStringNumber } from '../../../../utils/stringUtils';
 import { PortfolioItemCardSkeleton } from './PortfolioItemCardSkeleton';
 import styles from './portfolioItemCard.module.css';
@@ -42,31 +43,40 @@ export interface PortfolioItemCardProps {
 
 export const PortfolioItemCard = ({ symbol }: PortfolioItemCardProps) => {
   const { data, isLoading } = useTokenBalances();
-  if (isLoading) return <PortfolioItemCardSkeleton />;
   const token = data.find((e) => e.symbol === symbol) || {
     totalAmountUSD: 0,
     totalBalance: 0,
+    contractAddress: '',
   };
+  const explorerUrl = useExplorerUrl(token.contractAddress);
+  if (isLoading) return <PortfolioItemCardSkeleton />;
+
   return (
-    <div className={styles.portfolioItemCard}>
+    <a href={explorerUrl} target="_blank">
       <div
-        style={{ backgroundColor: icons[symbol].containerBackgroundColor }}
-        className={styles.iconContainer}
+        className={classNames(styles.portfolioItemCard, {
+          [styles.portfolioItemCardDisabled]: token.totalBalance === 0,
+        })}
       >
-        <Icon component={icons[symbol].component} />
-      </div>
-      <Text variant="h2" className={styles.title}>
-        {icons[symbol].labelName}{' '}
-        <Text style={{ color: icons[symbol].accentColor }} variant="span">
-          ({symbol})
+        <div
+          style={{ backgroundColor: icons[symbol].containerBackgroundColor }}
+          className={styles.iconContainer}
+        >
+          <Icon component={icons[symbol].component} />
+        </div>
+        <Text variant="h2" className={styles.title}>
+          {icons[symbol].labelName}{' '}
+          <Text style={{ color: icons[symbol].accentColor }} variant="span">
+            ({symbol})
+          </Text>
         </Text>
-      </Text>
-      <Text variant="span" className={styles.cryptoValue}>
-        {localizedStringNumber(token.totalBalance)} <small>{symbol}</small>
-      </Text>
-      <Text variant="span" className={styles.dollarValue}>
-        ${localizedStringNumber(token.totalAmountUSD)}
-      </Text>
-    </div>
+        <Text variant="span" className={styles.cryptoValue}>
+          {localizedStringNumber(token.totalBalance)} <small>{symbol}</small>
+        </Text>
+        <Text variant="span" className={styles.dollarValue}>
+          ${localizedStringNumber(token.totalAmountUSD)}
+        </Text>
+      </div>
+    </a>
   );
 };

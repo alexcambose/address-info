@@ -2,8 +2,9 @@ import BigNumber from 'bignumber.js';
 import { useQuery } from 'react-query';
 import { useAddress } from '.';
 import { fetchTokenBalances } from '../utils/api';
-import { TokenMetadataItem, useTokenMetadata } from './useTokenMetadata';
-import { formatDecimals } from '../utils/stringUtils';
+import { useTokenMetadata } from './useTokenMetadata';
+import { convertBalance, formatDecimals } from '../utils/stringUtils';
+import { TokenMetadataItem } from '../utils/api.types';
 
 export interface TokenBalance {
   totalBalance: string;
@@ -16,7 +17,7 @@ export interface TokenBalance {
 }
 
 const generateTokenBalances = (
-  tokenBalances: any,
+  tokenBalances: Awaited<ReturnType<typeof fetchTokenBalances>>,
   tokenMetadata: TokenMetadataItem[]
 ) => {
   return [
@@ -35,9 +36,10 @@ const generateTokenBalances = (
       if (!tokenItemMetadata) return false;
       return {
         ...e,
-        totalBalance: new BigNumber(e.totalBalance)
-          .div(10 ** tokenItemMetadata.decimals)
-          .toFixed(2),
+        totalBalance: convertBalance(
+          e.totalBalance,
+          tokenItemMetadata.decimals
+        ),
         symbol: tokenItemMetadata.symbol,
         name: tokenItemMetadata.name,
         contractAddress: tokenItemMetadata.address,
@@ -51,7 +53,7 @@ const generateTokenBalances = (
         ),
       };
     })
-    .filter((e) => !!e && e.totalBalance > 0) as TokenBalance[];
+    .filter((e) => !!e && e.totalBalance !== '0') as TokenBalance[];
 };
 
 export const useTokenBalances = () => {

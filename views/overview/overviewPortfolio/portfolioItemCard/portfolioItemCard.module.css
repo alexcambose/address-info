@@ -10,6 +10,16 @@
   background-color: var(--color-primary);
   box-shadow: var(--box-shadow-default);
   padding: 1.2rem;
+  transform: translateY(0) scale(1);
+  transition: var(--transition-default);
+}
+.portfolioItemCard:not(.portfolioItemCardDisabled):hover {
+  transform: translateY(-6px) scale(1.01);
+  box-shadow: var(--box-shadow-large);
+  cursor: pointer;
+}
+.portfolioItemCardDisabled {
+  opacity: 0.7;
 }
 
 .iconContainer {

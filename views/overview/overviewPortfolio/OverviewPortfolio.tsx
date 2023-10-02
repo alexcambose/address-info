@@ -16,7 +16,7 @@ export const OverviewPortfolio = () => {
           symbol: e.symbol,
           name: e.name,
           amountCrypto: e.totalBalance,
-          amountDollar: e.priceUSD,
+          amountDollar: e.totalAmountUSD,
           contractAddress: e.contractAddress,
         })) || []
       }

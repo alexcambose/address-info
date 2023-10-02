@@ -17,8 +17,8 @@ export const useTokenTransfers = () => {
   return {
     isLoading: isLoading || isTokenMetadataLoading,
     error,
-    data: data?.result
-      .map((e) => {
+    data: data
+      ?.map((e) => {
         const tokenItemMetadata = tokenMetadata?.find(
           (tm) => tm.address === (e.contractAddress || ethers.ZeroAddress)
         );
