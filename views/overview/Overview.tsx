@@ -6,6 +6,7 @@ import { OverviewHeader } from './overviewHeader/OverviewHeader';
 import { OverviewPortfolio } from './overviewPortfolio/OverviewPortfolio';
 import { OverviewTransfers } from './overviewTransfers/OverviewTransfers';
 import { TotalBalanceIndicator } from './totalBalanceIndicator/TotalBalanceIndicator';
+import { useAddress } from '../../hooks';
 
 const menu = [
   {
@@ -27,6 +28,7 @@ export const Overview = () => {
   const [selectedTabId, setSelectedTabId] = useState<TabItemProps['id']>(
     menu[0].id
   );
+  const address = useAddress();
   return (
     <>
       <OverviewHeader />

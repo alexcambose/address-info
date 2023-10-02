@@ -44,39 +44,44 @@ export interface PortfolioItemCardProps {
 export const PortfolioItemCard = ({ symbol }: PortfolioItemCardProps) => {
   const { data, isLoading } = useTokenBalances();
   const token = data.find((e) => e.symbol === symbol) || {
-    totalAmountUSD: 0,
-    totalBalance: 0,
+    totalAmountUSD: '0',
+    totalBalance: '0',
     contractAddress: '',
   };
   const explorerUrl = useExplorerUrl(token.contractAddress);
   if (isLoading) return <PortfolioItemCardSkeleton />;
 
-  return (
-    <a href={explorerUrl} target="_blank">
+  const content = (
+    <div
+      className={classNames(styles.portfolioItemCard, {
+        [styles.portfolioItemCardDisabled]: token.totalBalance === '0',
+      })}
+    >
       <div
-        className={classNames(styles.portfolioItemCard, {
-          [styles.portfolioItemCardDisabled]: token.totalBalance === 0,
-        })}
+        style={{ backgroundColor: icons[symbol].containerBackgroundColor }}
+        className={styles.iconContainer}
       >
-        <div
-          style={{ backgroundColor: icons[symbol].containerBackgroundColor }}
-          className={styles.iconContainer}
-        >
-          <Icon component={icons[symbol].component} />
-        </div>
-        <Text variant="h2" className={styles.title}>
-          {icons[symbol].labelName}{' '}
-          <Text style={{ color: icons[symbol].accentColor }} variant="span">
-            ({symbol})
-          </Text>
-        </Text>
-        <Text variant="span" className={styles.cryptoValue}>
-          {localizedStringNumber(token.totalBalance)} <small>{symbol}</small>
-        </Text>
-        <Text variant="span" className={styles.dollarValue}>
-          ${localizedStringNumber(token.totalAmountUSD)}
-        </Text>
+        <Icon component={icons[symbol].component} />
       </div>
+      <Text variant="h2" className={styles.title}>
+        {icons[symbol].labelName}{' '}
+        <Text style={{ color: icons[symbol].accentColor }} variant="span">
+          ({symbol})
+        </Text>
+      </Text>
+      <Text variant="span" className={styles.cryptoValue}>
+        {localizedStringNumber(token.totalBalance)} <small>{symbol}</small>
+      </Text>
+      <Text variant="span" className={styles.dollarValue}>
+        ${localizedStringNumber(token.totalAmountUSD)}
+      </Text>
+    </div>
+  );
+  return token.totalBalance === '0' ? (
+    content
+  ) : (
+    <a href={explorerUrl} target="_blank">
+      {content}
     </a>
   );
 };
